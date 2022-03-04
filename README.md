@@ -74,68 +74,6 @@ Typical output is
 ```
 The OpenVino output is similar but not identical to PyTorch due to the imaging processing pipeline that prepares the input blob. For example PyTorch 14.0807 is not equal to OpenVino 14.5915499 for top prediction German_shepherd.
 
-## Run Intel OpenVino classification with input vector saved from PyTorch
-
-To ensure identical input we will run again with the same input vector that was saved in the PyTorch notebook ( test_in_vector.npy ).
-
-The modified Intel OpenVino SDK **classification_sample.py** now has a new parameter **-rf** to allow this.
-
-```
-diff classification_sample.py ~/intel/computer_vision_sdk_2018.5.445/deployment_tools/inference_engine/samples/python_samples/classification_sample.py
-
-45d44
-<     parser.add_argument("-rf", "--read_vector_from_file", help="Read input vector from file", default=False, action="store_true")
-94,99d92
-<     # Read input vector to compare with PyTorch
-<     if args.read_vector_from_file:
-<         r = np.load("test_in_vector.npy")
-<         #print (r)
-<         images[0] = r
-<  
-124,126d116
-< 
-<     print (res[0][0:10])
-< 
-```
-
-
-In addition we need to run the model optimizer again with new parameters:
-```
-mo_onnx.py --input_model resnet50.onnx --data_type=FP32 --output_dir fp32
-```
-
-Run modified OpenVino classification:
-```
-python3 classification_sample.py --labels test_model.labels  -m fp32/resnet50.xml -i dog.jpeg -d CPU -rf
-[ INFO ] Loading network files:
-	fp32/resnet50.xml
-	fp32/resnet50.bin
-[ INFO ] Preparing input blobs
-[ WARNING ] Image dog.jpeg is resized from (216, 233) to (224, 224)
-[ INFO ] Batch size is 1
-[ INFO ] Loading model to the plugin
-[ INFO ] Starting inference (1 iterations)
-[ INFO ] Average running time of one iteration: 16.2506103515625 ms
-[ INFO ] Processing output blob
-[ 1.4262071  -2.8766239  -2.201517   -1.2191257  -3.089852   -1.4179183
- -4.359639    0.9693046   0.83319616  0.43519974]
-[ INFO ] Top 10 results: 
-Image dog.jpeg
-
-14.0807028 label n02106662_German_shepherd,_German_shepherd_dog,_German_police_dog,_alsatian
-11.5883627 label n02105162_malinois
-11.1329060 label n02111129_Leonberg
-9.3867922 label n02116738_African_hunting_dog,_hyena_dog,_Cape_hunting_dog,_Lycaon_pictus
-8.8370838 label n02088094_Afghan_hound,_Afghan
-8.8061085 label n02091467_Norwegian_elkhound,_elkhound
-8.4025440 label n02105056_groenendael
-7.9560895 label n02108551_Tibetan_mastiff
-7.9554348 label n02090721_Irish_wolfhound
-7.9355597 label n02105412_kelpie
-```
-We can now see we are in agreement between PyTorch and OpenVino as OpenVino 14.0807028 is equal to PyTorch 14.0807 value as expected assuming we have the same input.
-
-
 ## Run model optimizer without optimizations
 Just for reference in some cases it may be useful to disable some optimizations to better debug similar discrepancy issues.
 ```
