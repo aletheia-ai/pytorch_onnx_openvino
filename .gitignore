@@ -30,3 +30,8 @@
 *.exe
 *.out
 *.app
+fp16/
+fp32/
+*.onnx
+*.pth
+*.npy
