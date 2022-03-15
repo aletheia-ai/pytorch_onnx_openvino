@@ -1,3 +1,5 @@
+
+
 # Pytorch to ONNX to Intel OpenVino
 
 Validation of the "PyTorch to ONNX to Intel OpenVino" workflow using ImageNet pretrained ResNet.
@@ -36,17 +38,17 @@ Convert ONNX to OpenVino IR
 ```
 mkdir fp16 fp32
 
-mo_onnx.py --input_model resnet18.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --disable_resnet_optimization --disable_fusing --disable_gfusing --data_type=FP32 --output_dir fp32
-mo_onnx.py --input_model resnet34.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --disable_resnet_optimization --disable_fusing --disable_gfusing --data_type=FP32 --output_dir fp32
-mo_onnx.py --input_model resnet50.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --disable_resnet_optimization --disable_fusing --disable_gfusing --data_type=FP32 --output_dir fp32
-mo_onnx.py --input_model resnet101.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --disable_resnet_optimization --disable_fusing --disable_gfusing --data_type=FP32 --output_dir fp32
-mo_onnx.py --input_model resnet152.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --disable_resnet_optimization --disable_fusing --disable_gfusing --data_type=FP32 --output_dir fp32
+python3  /opt/intel/openvino_2021/deployment_tools/model_optimizer/mo_onnx.py --input_model resnet18.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --disable_resnet_optimization --disable_fusing --disable_gfusing --data_type=FP32 --output_dir fp32
+python3  /opt/intel/openvino_2021/deployment_tools/model_optimizer/mo_onnx.py --input_model resnet34.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --disable_resnet_optimization --disable_fusing --disable_gfusing --data_type=FP32 --output_dir fp32
+python3  /opt/intel/openvino_2021/deployment_tools/model_optimizer/mo_onnx.py --input_model resnet50.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --disable_resnet_optimization --disable_fusing --disable_gfusing --data_type=FP32 --output_dir fp32
+python3  /opt/intel/openvino_2021/deployment_tools/model_optimizer/mo_onnx.py --input_model resnet101.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --disable_resnet_optimization --disable_fusing --disable_gfusing --data_type=FP32 --output_dir fp32
+python3  /opt/intel/openvino_2021/deployment_tools/model_optimizer/mo_onnx.py --input_model resnet152.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --disable_resnet_optimization --disable_fusing --disable_gfusing --data_type=FP32 --output_dir fp32
 
-mo_onnx.py --input_model resnet18.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --disable_resnet_optimization --disable_fusing --disable_gfusing --data_type=FP16 --output_dir fp16
-mo_onnx.py --input_model resnet34.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --disable_resnet_optimization --disable_fusing --disable_gfusing --data_type=FP16 --output_dir fp16
-mo_onnx.py --input_model resnet50.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --disable_resnet_optimization --disable_fusing --disable_gfusing --data_type=FP16 --output_dir fp16
-mo_onnx.py --input_model resnet101.onnx --scale_values [51.5865,50.847,51.255] --mean_values [125.307,122.961,113.8575 --reverse_input_channels --disable_resnet_optimization --disable_fusing --disable_gfusing --data_type=FP16 --output_dir fp16
-mo_onnx.py --input_model resnet152.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --disable_resnet_optimization --disable_fusing --disable_gfusing --data_type=FP16 --output_dir fp16
+python3  /opt/intel/openvino_2021/deployment_tools/model_optimizer/mo_onnx.py --input_model resnet18.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --disable_resnet_optimization --disable_fusing --disable_gfusing --data_type=FP16 --output_dir fp16
+python3  /opt/intel/openvino_2021/deployment_tools/model_optimizer/mo_onnx.py --input_model resnet34.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --disable_resnet_optimization --disable_fusing --disable_gfusing --data_type=FP16 --output_dir fp16
+python3  /opt/intel/openvino_2021/deployment_tools/model_optimizer/mo_onnx.py --input_model resnet50.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --disable_resnet_optimization --disable_fusing --disable_gfusing --data_type=FP16 --output_dir fp16
+python3  /opt/intel/openvino_2021/deployment_tools/model_optimizer/mo_onnx.py --input_model resnet101.onnx --scale_values [51.5865,50.847,51.255] --mean_values [125.307,122.961,113.8575 --reverse_input_channels --disable_resnet_optimization --disable_fusing --disable_gfusing --data_type=FP16 --output_dir fp16
+python3  /opt/intel/openvino_2021/deployment_tools/model_optimizer/mo_onnx.py --input_model resnet152.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --disable_resnet_optimization --disable_fusing --disable_gfusing --data_type=FP16 --output_dir fp16
 ```
 
 
@@ -77,7 +79,7 @@ The OpenVino output is similar but not identical to PyTorch due to the imaging p
 ## Run model optimizer without optimizations
 Just for reference in some cases it may be useful to disable some optimizations to better debug similar discrepancy issues.
 ```
-mo_onnx.py --input_model resnet50.onnx --data_type=FP32 --output_dir fp32 --disable_resnet_optimization --disable_fusing --disable_gfusing 
+python3  /opt/intel/openvino_2021/deployment_tools/model_optimizer/mo_onnx.py --input_model resnet50.onnx --data_type=FP32 --output_dir fp32 --disable_resnet_optimization --disable_fusing --disable_gfusing 
 Model Optimizer arguments:
 Common parameters:
 	- Path to the Input Model: 	/home/ngeorgis/dl/pytorch_onnx_openvino/resnet50.onnx
@@ -122,7 +124,7 @@ The new output is very similar but execution may be slower.
 
 Run model optimizer again for FP16
 ```
-mo_onnx.py --input_model resnet50.onnx --data_type FP16  --output_dir fp16
+python3  /opt/intel/openvino_2021/deployment_tools/model_optimizer/mo_onnx.py --input_model resnet50.onnx --data_type FP16  --output_dir fp16
 python3 classification_sample.py --labels test_model.labels  -m fp16/resnet50.xml -i dog.jpeg -d GPU -rf
 ```
 Similar results
@@ -162,17 +164,17 @@ MYRIAD NCS2 output
 Make sure to run again the model optimizer again to have all optimizations enabled.
 
 ```
-mo_onnx.py  --input_model resnet18.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --data_type=FP32 --output_dir fp32
-mo_onnx.py  --input_model resnet34.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --data_type=FP32 --output_dir fp32
-mo_onnx.py  --input_model resnet50.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --data_type=FP32 --output_dir fp32
-mo_onnx.py --input_model resnet101.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --data_type=FP32 --output_dir fp32
-mo_onnx.py --input_model resnet152.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --data_type=FP32 --output_dir fp32
+python3  /opt/intel/openvino_2021/deployment_tools/model_optimizer/mo_onnx.py  --input_model resnet18.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --data_type=FP32 --output_dir fp32
+python3  /opt/intel/openvino_2021/deployment_tools/model_optimizer/mo_onnx.py  --input_model resnet34.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --data_type=FP32 --output_dir fp32
+python3  /opt/intel/openvino_2021/deployment_tools/model_optimizer/mo_onnx.py  --input_model resnet50.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --data_type=FP32 --output_dir fp32
+python3  /opt/intel/openvino_2021/deployment_tools/model_optimizer/mo_onnx.py --input_model resnet101.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --data_type=FP32 --output_dir fp32
+python3  /opt/intel/openvino_2021/deployment_tools/model_optimizer/mo_onnx.py --input_model resnet152.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --data_type=FP32 --output_dir fp32
 
-mo_onnx.py  --input_model resnet18.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --data_type=FP16 --output_dir fp16
-mo_onnx.py  --input_model resnet34.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --data_type=FP16 --output_dir fp16
-mo_onnx.py  --input_model resnet50.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --data_type=FP16 --output_dir fp16
-mo_onnx.py --input_model resnet101.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --data_type=FP16 --output_dir fp16
-mo_onnx.py --input_model resnet152.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --data_type=FP16 --output_dir fp16
+python3  /opt/intel/openvino_2021/deployment_tools/model_optimizer/mo_onnx.py  --input_model resnet18.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --data_type=FP16 --output_dir fp16
+python3  /opt/intel/openvino_2021/deployment_tools/model_optimizer/mo_onnx.py  --input_model resnet34.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --data_type=FP16 --output_dir fp16
+python3  /opt/intel/openvino_2021/deployment_tools/model_optimizer/mo_onnx.py  --input_model resnet50.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --data_type=FP16 --output_dir fp16
+python3  /opt/intel/openvino_2021/deployment_tools/model_optimizer/mo_onnx.py --input_model resnet101.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --data_type=FP16 --output_dir fp16
+python3  /opt/intel/openvino_2021/deployment_tools/model_optimizer/mo_onnx.py --input_model resnet152.onnx --scale_values=[58.395,57.120,57.375] --mean_values=[123.675,116.28,103.53] --reverse_input_channels --data_type=FP16 --output_dir fp16
 ```
 
 ## Conclusions
